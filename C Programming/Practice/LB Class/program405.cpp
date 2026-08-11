@@ -1,0 +1,132 @@
+#include<iostream>
+using namespace std;
+#pragma pack(1)
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+typedef struct node NODE;
+typedef struct node* PNODE;
+
+class SinglyLL    //linear linked list
+{
+    private:
+    PNODE first ; //karan he change karayla nko mhnun 
+    int iCount ;
+
+    public:
+    SinglyLL() ; //declaration    
+
+
+    void Display() ;
+
+    int Count();
+    
+    void InsertFirst(int iNo) ;
+  
+    void InsertLast(int iNo);
+
+    void InsertAtPos(int iNo ,int iPos);
+   
+    void DeleteFirst()  ;
+   
+    void DeleteLast() ;
+ 
+    void DeleteAtPos(int iPos)  ;//eka frame madhe sagl distay 
+
+};
+//constructor name
+SinglyLL::SinglyLL()    
+{
+    this->first = NULL;  
+    this->iCount =0;
+}
+//return type//classname  //function name
+void SinglyLL :: Display()
+{
+  PNODE temp = NULL;
+  temp = this->first; //temp madhe 100 ala
+
+  while(temp!=NULL)
+  {
+    cout<<"| "<<temp->data<<" | ->";
+    temp = temp->next;
+  }
+  cout<<"NULL"<<endl;
+}
+
+int SinglyLL :: Count()
+{
+    return this->iCount;
+}
+void SinglyLL ::  InsertFirst(int iNo) 
+{
+    PNODE newn = NULL ; //new pointer
+    newn = new NODE;  //memory allocate keli mulga alay
+
+    newn->data =iNo;  //mulala number de
+    newn->next = NULL;
+
+    if(this->first == NULL)
+    {
+        this->first = newn;
+    }
+    else
+    {
+       newn->next = this->first;
+       this->first =  newn ;
+    }
+
+    this->iCount++;//kuthlya hi loop madhun baher yeude iCount ++ hoil mhnun last la delay 
+}
+void SinglyLL ::  InsertLast(int iNo)
+{
+      PNODE newn = NULL ; //new pointer
+    newn = new NODE;  //memory allocate keli mulga alay
+
+    newn->data =iNo;  //mulala number de
+    newn->next = NULL;
+
+    if(this->first == NULL)
+    {
+        this->first = newn;
+    }
+    else
+    {
+
+    }
+}
+void SinglyLL ::  InsertAtPos(int iNo ,int iPos)
+{
+
+}
+void SinglyLL ::  DeleteFirst()  
+{
+
+}
+void SinglyLL ::  DeleteLast() 
+{
+
+}
+void SinglyLL ::  DeleteAtPos(int iPos)  
+{
+
+}
+int main()
+{
+    int iRet =0; //pishvi count chi return value ghryla 
+    SinglyLL sobj;
+
+    sobj.InsertFirst(51);
+    sobj.InsertFirst(21);
+    sobj.InsertFirst(11);
+
+    sobj.Display();
+    iRet = sobj.Count();
+    cout<<"Number of elements are :"<<iRet<<endl;
+    return 0;
+}
+//foe madhe convert kar fakt c++ ch karan iCOunt ah emhnun 
+//first madhe direct pahilya node chaa adress yetoy 
