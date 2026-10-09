@@ -1,0 +1,40 @@
+//write generic program to accept N values and serach last occerence of any specific value
+
+#include<iostream>
+using namespace std;
+
+template<class T>
+
+
+int Occurence(T *arr,int iSize ,T iValue)                          
+{
+     int iPos = 0 , iLast = 1;
+    for(int i = 0; i < iSize ; i++)
+    {
+      if(arr[i] == iValue)
+      {
+        iLast = iPos + 1;
+      }
+      iPos++;
+    }
+    return iLast;
+ 
+}
+
+int main()
+{
+  int arr[] = {10,30, 40,20,20,20,20,20};
+  float brr[] = {20.2,30.2,10.2,40.2,11.2,10.2};
+  int iRet = 0;
+
+  iRet =Occurence(arr,8,20);
+  cout << "Last occurrence of 20: " << iRet << endl;
+
+  iRet =Occurence(brr,6,10.2f);
+  cout << "Last occurrence of 10.2: " << iRet << endl;
+  return 0;
+}
+/*
+Last occurrence of 20: 8
+Last occurrence of 10.2: 6
+*/
